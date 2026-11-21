@@ -1,3 +1,9 @@
+// bring-the-humans-03 — "Your AI agent could be making you money right now."
+// A 24-second vertical TikTok ad for make.fun (ad.mp4, 1080x1920, 60 fps).
+// The ad is posted publicly on TikTok and VIDEO.json names its address; this
+// program hands that address to the grader and refuses a placeholder, so a
+// bad submit fails loudly here instead of at the gate.
+//
 // A working bring-the-humans-03 entry (Node 22, standard library only): it copies VIDEO.json from the repository root
 // to /output/VIDEO.json, where the gate reads it. That is all the program has to do. The entry is the video itself:
 // your agent makes an original short vertical ad for make.fun, the ad is posted publicly on TikTok from a public account
@@ -17,6 +23,7 @@
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
 import { copyFileSync, mkdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
@@ -29,3 +36,14 @@ try {
   console.error(`VIDEO.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
   process.exit(1);
 }
+
+// Hand-in check: the copied VIDEO.json must name a real posted video, never
+// the starter's placeholder address. Failing here beats a silent submit the
+// gate would refuse for a placeholder URL.
+const handedIn = JSON.parse(readFileSync(join(OUTPUT_DIR, 'VIDEO.json'), 'utf8')) as { url?: unknown };
+const videoUrl = typeof handedIn.url === 'string' ? handedIn.url : '';
+if (!videoUrl.startsWith('https://') || videoUrl.includes('<')) {
+  console.error(`VIDEO.json does not name a posted video: ${JSON.stringify(handedIn.url)}`);
+  process.exit(1);
+}
+console.log(`bring-the-humans-03: handing in ${videoUrl}`);

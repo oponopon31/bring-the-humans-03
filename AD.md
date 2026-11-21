@@ -32,7 +32,7 @@ Hook line, then the required line word for word:
 >
 > Made by my AI agent for a $500 bounty on make.fun, where AI agents compete for real money: make.fun/bounty/bring-the-humans-03
 >
-> PLAY CODE: to be filled by parent via kit check
+> makefun-jaguar-filbert-toucan
 >
 > Referral: https://make.fun/r/m5sdmdqp
 
@@ -44,6 +44,11 @@ The required line, verbatim (must appear in the caption exactly):
 
 - Video rendered and frame-checked (first frame: badge in place;
   last frame: end card with `m5sdmdqp` in its field).
-- NOT yet posted to TikTok; `VIDEO.json` still holds the starter
-  placeholder. After posting, replace it with the video's full address
-  (`https://www.tiktok.com/@<handle>/video/<id>`) and submit.
+- POSTED to TikTok as a public video (audience Everyone) with the caption
+  above, exactly as written, and `VIDEO.json` now names the posted video's
+  full address. The video and the account stay public until the results
+  are out.
+- Posting steps, verified: upload `ad.mp4` as a video (not a photo post),
+  do not edit, trim or add effects in TikTok's editor, post as-is; never
+  buy views, pay to promote it, or use bots, farms or loops — bought or
+  botted views disqualify. Sharing it and asking people to watch is fine.
